@@ -1,0 +1,22 @@
+- Database Design (Model & Migration)
+- Feature Implement (Controller)
+- Routing
+- Authentication and Authorization (Token Based Authentication)
+- Control AccessPoints/EndPoints
+
+
+
+
+RESTful API Basics, 
+Routing, 
+CRUD Operations, 
+JSON Responses, 
+Validation,
+Postman Testing
+
+
+
+versioning
+modeling json Responses
+API Resources
+Form Request (Separate Validation Logic)
