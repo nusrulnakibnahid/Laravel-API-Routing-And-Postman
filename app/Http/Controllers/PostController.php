@@ -13,7 +13,17 @@ class PostController extends Controller
      */
     public function index()
     {
-        return Post::all();
+        // return Post::all();
+
+        $posts = Post::all();
+
+        // return PostResource::collection($posts);
+
+        return response()->json([
+            'data' => $posts,
+            'message' => 'success',
+            'status' => 200 
+        ]);
     }
 
     /**
@@ -37,7 +47,12 @@ class PostController extends Controller
         ]);
 
 
-        return $post;
+        // return $post;
+        return response()->json([
+            'data' => $post,
+            'message' => 'Post Created Successfully',
+            'status' => 201 
+        ] ); 
     }
 
     /**
@@ -64,6 +79,7 @@ class PostController extends Controller
             return "Post not found";
             
         }
+
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
             'body' => 'required',
@@ -74,13 +90,14 @@ class PostController extends Controller
         return $validator->errors();
 
     }
-    $post = Post::create([
-        'title' => $request->title,
-        'body' => $request->body,
-    ]);
-    }
+        $post->update([
+            'title' => $request->title,
+            'body' => $request->body,
+        ]);
 
-    
+        return $post;
+        
+    }
 
     /**
      * Remove the specified resource from storage.
